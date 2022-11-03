@@ -13,13 +13,13 @@ import {
   SafeAreaView,
 } from "react-native";
 import io from "socket.io-client";
-
+import link from "../../../Adress";
 function Chat() {
   const [chat, setChat] = useState("");
   const [messages, setMessages] = useState([]);
   const [room, setRoom]=useState("")
 
-  const socket = io.connect("http://192.168.1.5:3001");
+  const socket = io.connect("http://192.168.79.118:3001");
   
   useEffect(() => {
     const characters =
@@ -49,7 +49,6 @@ function Chat() {
    
       <View style={styles.container}>
         <View>
-           
           <View style={styles.container1}>
             <View style={styles.containerForMessage}>
             <FlatList
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
     right:13
   },
   loginBtn: {
-    width: "90%",
+    width: "94%",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
   },
 
   TextInput: {
-    height: 200,
+    height: "100%",
     flex: 1,
     padding: 20,
     marginLeft: 20,
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
   inputView:{
     borderWidth:2,
     borderColor:"#077871",
-    width:"90%",
+    width:"94%",
     height:70,
     borderRadius:50,
     textAlign:"center",

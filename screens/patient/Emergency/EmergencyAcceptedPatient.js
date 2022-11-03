@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
   },
   textInput1: {
     fontSize: 40,
+    padding:10,
+    color: "#077871",
   }
 });
 export default EmergencyAccepted

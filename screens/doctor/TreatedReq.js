@@ -43,7 +43,7 @@ const TreatedReq = ({ route, navigation }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log("dqtq",data);
         setData(data);
       })
       .catch((err) => console.error(err));

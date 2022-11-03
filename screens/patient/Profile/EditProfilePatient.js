@@ -29,9 +29,7 @@ function EditProfilePatient({ navigation, route }) {
   );
   const [age, setAge] = useState(route.params.patient.age);
   const [gender, setGender] = useState(route.params.patient.gender);
-  const [Chronical, setChronical] = useState(
-    route.params.patient.chronicDiseases
-  );
+  const [chronical, setChronical] = useState(route.params.patient.chronicDiseases);
   const data = [
     { label: "Male", value: "male" },
     { label: "Female", value: "female" },
@@ -215,16 +213,16 @@ function EditProfilePatient({ navigation, route }) {
       .then((a) => setGender(a.data.gender))
       .catch((err) => console.log(err));
   };
-
   const changechronicals = () => {
+    console.log("aaaaaaaaaaaaaaaa",chronical)
     axios
-      .put(`${link}/user/updateAll`, {
-        id: route.params.patient.id,
-        chronicDiseases: Chronical,
-      })
-      .then((a) => setChronical(a.data.chronicDiseases))
-      .catch((err) => console.log(err));
-  };
+    .put(`${link}/user/updateAll`, {
+      id: route.params.patient.id,
+      chronicDiseases: chronical,
+    })
+    .then((a) => setChronical(a.data.chronicDiseases))
+    .catch((err) => console.log(err));
+  }
 
   return (
     <ScrollView>
@@ -289,9 +287,11 @@ function EditProfilePatient({ navigation, route }) {
           </View>
           <Text>Medical records :</Text>
           <View style={styles.containerForEdit}>
-            <TextInput
+          <TextInput
               style={styles.description}
-              onChange={(Chronical) => setChronical(Chronical)}
+              onChangeText={(aaaa) => setChronical(aaaa)}
+              placeholder={chronical}
+              defaultValue={chronical}
             ></TextInput>
           </View>
           <View style={styles.containerForEdit}>
@@ -313,9 +313,9 @@ function EditProfilePatient({ navigation, route }) {
               changerFirstName();
               changeLastName();
               changeEmail();
+              changechronicals();
               changePhonenumber();
               changeAge();
-              changechronicals();
               changegender();
               navigation.dispatch(
                 CommonActions.navigate({

@@ -25,7 +25,7 @@ function EditPageDoc({ navigation, route }) {
     phoneNumber: "",
     adress: "",
     disponibility: "",
-    image: "aaaaaaaaa",
+    image: "https://bootdey.com/img/Content/avatar/avatar6.png",
     id: "",
   });
 

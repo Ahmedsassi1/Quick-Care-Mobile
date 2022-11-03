@@ -20,10 +20,11 @@ function DoctorChat() {
   const [chat, setChat] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const socket = io.connect(`${link}`);
+  const socket = io.connect("http://192.168.79.118:3001");
 
   //   useEffect(() => {
   socket.on("Doctor_message", (message) => {
+    console.log("message doctor", message);
     setMessages([...messages, message]);
   });
   // console.log(messages);
@@ -44,7 +45,6 @@ function DoctorChat() {
             <FlatList
               data={messages}
               renderItem={({ item }) => {
-                console.log("Doctor log el item", item);
                 return item.chat ? (
                   <View style={styles.messages}>
                     <Text style={styles.messagetext}> {item.chat} </Text>

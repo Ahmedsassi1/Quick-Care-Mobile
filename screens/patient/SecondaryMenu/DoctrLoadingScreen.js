@@ -12,8 +12,13 @@ import {
 import LottieView from "lottie-react-native";
 import axios from "axios";
 import link from "../../../Adress";
+import { useEffect } from "react";
+
 
 function DoctorLoadingScreen({ navigation, route }) {
+  useEffect(()=>{
+  requestAccepted()
+  },[])
   const requestAccepted = () => {
     const ActifRequest = { id: route.params.id };
     axios
